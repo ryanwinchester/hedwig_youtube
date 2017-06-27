@@ -9,7 +9,9 @@ defmodule HedwigYoutube.Config do
   def all(app) do
     app
     |> Application.get_all_env()
-    |> Enum.map(&get_runtime_value/1)
+    |> Enum.map(fn {key, val} ->
+      {key, get_runtime_value(val)}
+    end)
   end
 
   @doc """
