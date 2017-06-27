@@ -22,7 +22,7 @@ defmodule Hedwig.Responders.Youtube do
   end
 
   # Search youtube for relevant videos
-  @spec search_vids(String.t) :: List.t
+  @spec search_vids(String.t) :: List.t | :error
   defp search_vids(query) do
     url = "https://www.googleapis.com/youtube/v3/search"
     headers = []
