@@ -22,7 +22,7 @@ use Mix.Config
 #
 
 config :hedwig_youtube,
-  youtube_key: System.get_env("YOUTUBE_KEY")
+  youtube_key: {:system, "YOUTUBE_KEY"}
 
 # It is also possible to import configuration files, relative to this
 # directory. For example, you can emulate configuration per environment

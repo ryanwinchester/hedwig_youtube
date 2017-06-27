@@ -32,6 +32,11 @@ config :my_robot, MyApp.MyRobot,
 
 - `YOUTUBE_KEY` environment variable for your **youtube API key**
 
+```elixir
+config :hedwig_youtube,
+  youtube_key: {:system, "YOUTUBE_KEY"}
+```
+
 Or, you can override the config, like so:
 
 ```elixir
