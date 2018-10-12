@@ -2,8 +2,6 @@ defmodule Hedwig.Responders.Youtube do
   use Hedwig.Responder
   require Logger
 
-  @api_key Config.get_env(:hedwig_youtube, :youtube_key)
-
   @usage """
   hedwig youtube|yt|video|vid me <query> - Responds with a random video from the top 15 results
   hedwig youtube|yt|video|vid me - <query> - Responds with the first video result
@@ -29,7 +27,7 @@ defmodule Hedwig.Responders.Youtube do
     headers = []
     opts = [
       params: [
-        key: @api_key,
+        key: api_key(),
         part: "id",
         type: "video",
         order: "relevance",
@@ -47,4 +45,6 @@ defmodule Hedwig.Responders.Youtube do
         :error
     end
   end
+
+  def api_key, do: Config.get_env(:hedwig_youtube, :youtube_key)
 end
